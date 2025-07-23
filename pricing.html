@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Foot Harmony | Step Into Wellness</title>
+    <meta name="description" content="Transparent pricing for professional foot care services in Dunstable. 1-hour appointments, sterile equipment, mobile service available.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pricing-hero {
+            background: var(--gradient);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .pricing-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pricing-content {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .pricing-guarantee {
+            background: var(--background-light);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .guarantee-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .guarantee-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .guarantee-item h3 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .guarantee-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: var(--background-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .service-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .price {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .service-features i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            width: 16px;
+        }
+        
+        .duration-badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+        
+        .pricing-notes {
+            background: var(--background-light);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .notes-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .notes-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+        
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .note-item {
+            background: var(--background-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .note-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .note-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .pricing-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--background-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .pricing-cta h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+            
+            .pricing-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .price-amount {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: inherit;">👣 Foot Harmony</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#reviews" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <div class="hero-tagline">
+                <span class="tagline">Step Into Wellness</span>
+            </div>
+            <h1>Transparent Pricing</h1>
+            <p>Professional foot care services with no hidden costs. Every appointment includes a full hour of comprehensive care with sterile equipment.</p>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="pricing-guarantee">
+        <div class="container">
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Full Hour Sessions</h3>
+                    <p>No rushing - comprehensive care every time</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Sterile Equipment</h3>
+                    <p>Medical-grade sterilization for your safety</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Mobile Service</h3>
+                    <p>Professional care in your own home</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Qualified Professional</h3>
+                    <p>Certified foot practitioner with ongoing training</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Content -->
+    <section class="pricing-content">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Service Pricing</h2>
+                <p class="section-subtitle">All prices include comprehensive consultation, treatment, and aftercare advice</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="service-name">Professional Nail Care</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Professional nail trimming & filing</li>
+                        <li><i class="fas fa-check"></i> Ingrown nail treatment</li>
+                        <li><i class="fas fa-check"></i> Fungal nail assessment</li>
+                        <li><i class="fas fa-check"></i> Sterile instruments</li>
+                        <li><i class="fas fa-check"></i> Aftercare advice</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3 class="service-name">Comprehensive Foot Care</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Complete foot health assessment</li>
+                        <li><i class="fas fa-check"></i> Corn & callus treatment</li>
+                        <li><i class="fas fa-check"></i> Professional nail care</li>
+                        <li><i class="fas fa-check"></i> Hard skin removal</li>
+                        <li><i class="fas fa-check"></i> Foot health advice</li>
+                        <li><i class="fas fa-check"></i> Prevention strategies</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="service-name">Diabetic Foot Care</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Specialized diabetic assessment</li>
+                        <li><i class="fas fa-check"></i> Gentle nail care</li>
+                        <li><i class="fas fa-check"></i> Circulation monitoring</li>
+                        <li><i class="fas fa-check"></i> Risk assessment</li>
+                        <li><i class="fas fa-check"></i> Wound care guidance</li>
+                        <li><i class="fas fa-check"></i> Regular monitoring plan</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="service-name">Verruca Treatment</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Professional verruca assessment</li>
+                        <li><i class="fas fa-check"></i> Treatment plan discussion</li>
+                        <li><i class="fas fa-check"></i> Pain-free treatment options</li>
+                        <li><i class="fas fa-check"></i> Prevention advice</li>
+                        <li><i class="fas fa-check"></i> Follow-up guidance</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="service-name">Foot Health Assessment</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Comprehensive foot examination</li>
+                        <li><i class="fas fa-check"></i> Gait analysis</li>
+                        <li><i class="fas fa-check"></i> Footwear assessment</li>
+                        <li><i class="fas fa-check"></i> Personalized care plan</li>
+                        <li><i class="fas fa-check"></i> Prevention strategies</li>
+                        <li><i class="fas fa-check"></i> Written recommendations</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="service-name">Routine Maintenance</h3>
+                    <div class="duration-badge">
+                        <i class="fas fa-clock"></i> 1 Hour Appointment
+                    </div>
+                    <div class="price">
+                        <div class="price-amount">£30</div>
+                        <div class="price-period">per session</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Regular foot maintenance</li>
+                        <li><i class="fas fa-check"></i> Nail trimming & filing</li>
+                        <li><i class="fas fa-check"></i> Basic callus management</li>
+                        <li><i class="fas fa-check"></i> Foot health monitoring</li>
+                        <li><i class="fas fa-check"></i> Ongoing care advice</li>
+                        <li><i class="fas fa-check"></i> Mobile service included</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Book Appointment</a>
+                </div>
+            </div>
+
+            <div class="pricing-cta">
+                <h3>Not sure which service you need?</h3>
+                <p>Contact us for a free consultation to discuss your specific needs and find the right treatment plan for you.</p>
+                <a href="index.html#contact" class="btn btn-primary">Get Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Notes -->
+    <section class="pricing-notes">
+        <div class="container">
+            <div class="notes-content">
+                <h3>Important Information</h3>
+                <div class="notes-grid">
+                    <div class="note-item">
+                        <h4>Mobile Service</h4>
+                        <p>All prices include mobile service from our Dunstable base (37 Churchill Road) to surrounding areas including Luton, Leighton Buzzard, and local villages. No additional travel charges within our service radius.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Payment Methods</h4>
+                        <p>We accept cash, bank transfer, and other agreed payment methods. Payment due at time of service.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Appointment Duration</h4>
+                        <p>All appointments are scheduled for one full hour to ensure comprehensive care without rushing.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Package Deals</h4>
+                        <p>Regular clients may be eligible for package discounts. Please inquire about ongoing care plans.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Cancellation Policy</h4>
+                        <p>24-hour notice required for cancellations. See our Terms of Service for full details.</p>
+                    </div>
+                    <div class="note-item">
+                        <h4>Professional Standards</h4>
+                        <p>All treatments include sterile equipment, professional consultation, and aftercare advice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Foot Harmony</h3>
+                    <p>Professional foot care services by Lucie Young. Your trusted partner in foot health and wellness.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#reviews">Reviews</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> 07954 344 256</p>
+                        <p><i class="fas fa-envelope"></i> lucieyoung28@hotmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 37 Churchill Road, Dunstable LU6 3LU</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Foot Harmony by Lucie Young. All rights reserved. | Step Into Wellness</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
