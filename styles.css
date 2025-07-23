@@ -171,7 +171,7 @@ html {
 }
 
 .accent-text {
-    color: var(--accent-color);
+    color: var(--accent-purple);
     background: linear-gradient(45deg, #06b6d4, #0891b2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,6 +189,7 @@ html {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .btn {
@@ -264,7 +265,7 @@ html {
 .hero-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--accent-color);
+    color: var(--accent-purple);
 }
 
 .hero-card h3 {
@@ -300,6 +301,8 @@ html {
     grid-template-columns: 400px 1fr;
     gap: 4rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about-image {
@@ -309,7 +312,7 @@ html {
 .image-placeholder {
     width: 100%;
     height: 400px;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -398,6 +401,9 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .service-card {
@@ -411,6 +417,8 @@ html {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 380px;
 }
 
 .service-card:nth-child(even) {
@@ -486,9 +494,17 @@ html {
     color: var(--text-primary);
 }
 
+.service-card:nth-child(even) h3 {
+    color: var(--accent-purple);
+}
+
 .service-card p {
     color: var(--text-secondary);
     line-height: 1.7;
+}
+
+.service-card:nth-child(even) p {
+    color: var(--text-secondary);
 }
 
 /* Location Section */
@@ -502,6 +518,8 @@ html {
     grid-template-columns: 1fr 400px;
     gap: 4rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .location-details {
@@ -540,7 +558,7 @@ html {
 .map-placeholder {
     width: 100%;
     height: 400px;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -576,6 +594,8 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-methods {
@@ -601,7 +621,7 @@ html {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -692,9 +712,21 @@ html {
 
 /* Footer */
 .footer {
-    background-color: var(--text-primary);
+    background: linear-gradient(135deg, var(--text-primary) 0%, #1e293b 100%);
     color: white;
     padding: 50px 0 20px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--accent-purple), transparent);
+    opacity: 0.6;
 }
 
 .footer-content {
@@ -712,7 +744,11 @@ html {
 
 .footer-section h3 {
     font-size: 1.5rem;
-    color: var(--accent-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-purple) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 2px rgba(5, 150, 105, 0.3));
 }
 
 .footer-section p {
@@ -735,7 +771,7 @@ html {
 }
 
 .footer-section ul li a:hover {
-    color: var(--accent-color);
+    color: var(--accent-purple);
 }
 
 .footer-contact p {
@@ -747,7 +783,7 @@ html {
 }
 
 .footer-contact i {
-    color: var(--accent-color);
+    color: var(--accent-purple);
     width: 16px;
 }
 
@@ -1358,7 +1394,7 @@ html {
 .hero-cards .hero-icon {
     font-size: 2rem;
     margin-bottom: 0.75rem;
-    color: var(--accent-color);
+    color: var(--accent-purple);
 }
 
 .hero-cards .hero-card h3 {
@@ -1508,12 +1544,12 @@ html {
 }
 
 .service-duration i {
-    color: var(--accent-color);
+    color: var(--accent-purple);
     margin-right: 0.5rem;
 }
 
 .service-duration em {
-    color: var(--accent-color);
+    color: var(--accent-purple);
     font-size: 0.85rem;
     font-weight: 500;
 }
@@ -1546,6 +1582,10 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .benefit-card {
@@ -1567,7 +1607,7 @@ html {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -1585,7 +1625,7 @@ html {
 .benefit-icon {
     width: 80px;
     height: 80px;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1622,7 +1662,7 @@ html {
     max-width: 600px;
     margin: 0 auto;
     padding: 3rem;
-    background: var(--gradient);
+    background: var(--gradient-hero);
     border-radius: 20px;
     color: white;
     box-shadow: var(--shadow-lg);
@@ -1683,6 +1723,10 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .review-card {
